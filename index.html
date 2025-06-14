@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sicurplan.com | Home</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <script> //Tailwind CSS configuration
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: { primary: "#1e40af", secondary: "#0ea5e9" },
+                        borderRadius: {
+                            none: "0px",
+                            sm: "4px",
+                            DEFAULT: "8px",
+                            md: "12px",
+                            lg: "16px",
+                            xl: "20px",
+                            "2xl": "24px",
+                            "3xl": "32px",
+                            full: "9999px",
+                            button: "8px",
+                        },
+                    },
+                },
+            };
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+        <style src="style.css"></style>
+    </head>
+    <body class="bg-white">
+        <!-- Header -->
+        <header class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50 transition-all duration-300">
+            <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="#" class="flex items-center">
+                    <img src="https://static.readdy.ai/image/d7d03e2176ffa5c512c838da1554a506/ae3936aa6b10716fcdad6f099d4f223f.png" alt="Sicurplan Logo" class="h-10" />
+                    <span class="text-3xl font-bold text-primary ml-2">Sicurplan.com</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="#services" class="text-gray-800 hover:text-primary font-medium transition-colors">Servizi</a>
+                    <a href="#projects" class="text-gray-800 hover:text-primary font-medium transition-colors">Progetti</a>
+                    <a href="#testimonials" class="text-gray-800 hover:text-primary font-medium transition-colors">Testimonianze</a>
+                    <a href="#contact" class="text-gray-800 hover:text-primary font-medium transition-colors">Contatti</a>
+                </nav>
+                <button class="hidden md:block bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+                    Richiedi Preventivo
+                </button>
+                <div class="md:hidden w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+                    <i class="ri-menu-line ri-2x text-gray-800"></i>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-md" id="mobile-menu">
+                <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                    <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors py-2">Home</a>
+                    <a href="#services" class="text-gray-800 hover:text-primary font-medium transition-colors py-2">Servizi</a>
+                    <a href="#projects" class="text-gray-800 hover:text-primary font-medium transition-colors py-2">Progetti</a>
+                    <a href="#testimonials" class="text-gray-800 hover:text-primary font-medium transition-colors py-2">Testimonials</a>
+                    <a href="#contact" class="text-gray-800 hover:text-primary font-medium transition-colors py-2">Contatti</a>
+                    <button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap w-full">
+                        Richiedi Preventivo
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Hero Section -->
+        <section class="hero-section w-full min-h-screen flex items-center pt-20">
+            <div class="container mx-auto px-6 py-20 w-full">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                        Soluzioni di Sicurezza Professionali per la Tua Tranquillità
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8">
+                        Con oltre 15 anni di esperienza nei sistemi di sicurezza, forniamo soluzioni CCTV personalizzate per proteggere ciò che conta di più per te.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+                            Richiedi Consulenza Gratuita
+                        </button>
+                        <button class="bg-white text-primary border-2 border-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+                            Visualizza i Progetti
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        I Nostri Servizi di Sicurezza
+                    </h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Offriamo soluzioni di sicurezza complete su misura per le tue esigenze specifiche, garantendo la massima protezione per la tua proprietà.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                            <i class="ri-cctv-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Installazione CCTV
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            Installazione professionale di telecamere di sorveglianza di alta qualità con posizionamento strategico per una copertura e sicurezza ottimali.
+                        </p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            Scopri di Più
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                            <i class="ri-door-lock-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Controllo Accessi
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            Secure entry systems with keycard, biometric, or code access to restrict and monitor who enters your premises.
+                        </p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            Scopri di Più
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                            <i class="ri-remote-control-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Monitoraggio Remoto
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            24/7 surveillance monitoring services with real-time alerts and professional response to security breaches.
+                        </p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            Scopri di Più
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                            <i class="ri-tools-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Manutenzione e Assistenza
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            Regular maintenance and servicing of your security systems to ensure optimal performance and longevity.
+                        </p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            Scopri di Più
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                            <i class="ri-alarm-warning-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Sistemi di Allarme Avanzati
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            Advanced intrusion detection systems with immediate notification capabilities to protect your property.
+                        </p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            Scopri di Più
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Service 6 -->
+                    <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                            <i class="ri-smartphone-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            Integrazione Mobile
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            Seamless integration with mobile devices allowing you to monitor your security systems from anywhere.
+                        </p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            Scopri di Più
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Projects Gallery -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        I Nostri Progetti Recenti
+                    </h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Sfoglia il nostro portfolio di installazioni di sicurezza completate con successo in vari settori.
+                    </p>
+                </div>
+                <div class="flex justify-center mb-8 px-4">
+                    <div class="inline-flex bg-gray-100 p-1 rounded-full">
+                        <div class="flex space-x-1">
+                            <button class="project-filter-btn active px-4 py-2 !rounded-full bg-primary text-white font-medium whitespace-nowrap text-sm">
+                                Tutti
+                            </button>
+                            <button class="project-filter-btn px-4 py-2 !rounded-full text-gray-700 font-medium whitespace-nowrap text-sm">
+                                Residenziale
+                            </button>
+                            <button class="project-filter-btn px-4 py-2 !rounded-full text-gray-700 font-medium whitespace-nowrap text-sm">
+                                Commerciale
+                            </button>
+                            <button class="project-filter-btn px-4 py-2 !rounded-full text-gray-700 font-medium whitespace-nowrap text-sm">
+                                Industriale
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div class="project-card rounded-lg overflow-hidden shadow-md group" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=modern%20office%20building%20with%20visible%20security%20cameras%20installed%20at%20strategic%20locations%2C%20professional%20CCTV%20installation%2C%20clean%20corporate%20environment%2C%20business%20security%20system%20with%20multiple%20cameras%2C%20blue%20tinted%20glass%20windows&width=600&height=400&seq=2&orientation=landscape"
+                                alt="Office Complex Security"
+                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    Riverside Office Complex
+                                </h3>
+                                <p class="text-sm">London, UK</p>
+                                <p class="mt-2">
+                                    Complete security overhaul with 48 cameras and access control for a 12-story office building.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                Riverside Office Complex
+                            </h3>
+                            <p class="text-gray-700">London, UK</p>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card rounded-lg overflow-hidden shadow-md group" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=luxury%20residential%20home%20with%20discreet%20security%20cameras%20installed%20around%20the%20property%2C%20elegant%20house%20with%20modern%20security%20system%2C%20high-end%20home%20surveillance%2C%20tasteful%20integration%20of%20cameras%20with%20architecture%2C%20residential%20security&width=600&height=400&seq=3&orientation=landscape"
+                                alt="Luxury Home Security"
+                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-xl font-semibold mb-2">Oakwood Estate</h3>
+                                <p class="text-sm">Surrey, UK</p>
+                                <p class="mt-2">
+                                    Comprehensive security system for a luxury residence including 16 cameras, alarm system, and remote access.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                Oakwood Estate
+                            </h3>
+                            <p class="text-gray-700">Surrey, UK</p>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card rounded-lg overflow-hidden shadow-md group" data-category="industrial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=industrial%20warehouse%20with%20comprehensive%20security%20camera%20system%2C%20manufacturing%20facility%20with%20CCTV%20cameras%2C%20industrial%20security%20installation%2C%20warehouse%20surveillance%20system%2C%20loading%20dock%20with%20security%20cameras&width=600&height=400&seq=4&orientation=landscape"
+                                alt="Warehouse Security"
+                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    Global Logistics Center
+                                </h3>
+                                <p class="text-sm">Manchester, UK</p>
+                                <p class="mt-2">
+                                    High-security installation for a 50,000 sq ft warehouse with 60+ cameras and advanced motion detection.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                Global Logistics Center
+                            </h3>
+                            <p class="text-gray-700">Manchester, UK</p>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card rounded-lg overflow-hidden shadow-md group" data-category="commercial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=retail%20shopping%20center%20with%20security%20cameras%20installed%20throughout%2C%20mall%20security%20system%2C%20commercial%20retail%20security%20cameras%2C%20shopping%20center%20surveillance%2C%20modern%20retail%20space%20with%20CCTV&width=600&height=400&seq=5&orientation=landscape"
+                                alt="Shopping Center Security"
+                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    Westfield Shopping Centre
+                                </h3>
+                                <p class="text-sm">Birmingham, UK</p>
+                                <p class="mt-2">
+                                    Multi-level security system for a major retail center with 120+ cameras and integrated access control.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                Westfield Shopping Centre
+                            </h3>
+                            <p class="text-gray-700">Birmingham, UK</p>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="project-card rounded-lg overflow-hidden shadow-md group" data-category="residential">
+                        <div class="relative h-64 overflow-hidden">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=modern%20apartment%20complex%20with%20security%20system%2C%20residential%20building%20with%20CCTV%20cameras%2C%20multi-family%20housing%20security%20installation%2C%20apartment%20security%20cameras%2C%20condominium%20with%20surveillance%20system&width=600&height=400&seq=6&orientation=landscape"
+                                alt="Apartment Complex Security"
+                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-xl font-semibold mb-2">Riverside Apartments</h3>
+                                <p class="text-sm">Liverpool, UK</p>
+                                <p class="mt-2">
+                                    Complete security solution for a 120-unit apartment complex with entry system and 24/7 monitoring.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                Riverside Apartments
+                            </h3>
+                            <p class="text-gray-700">Liverpool, UK</p>
+                        </div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="project-card rounded-lg overflow-hidden shadow-md group" data-category="industrial">
+                        <div class="relative h-64 overflow-hidden">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=manufacturing%20plant%20with%20comprehensive%20security%20system%2C%20factory%20with%20CCTV%20cameras%2C%20industrial%20production%20facility%20with%20surveillance%2C%20high-tech%20manufacturing%20security%2C%20factory%20floor%20with%20security%20cameras&width=600&height=400&seq=7&orientation=landscape"
+                                alt="Manufacturing Plant Security"
+                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    TechPro Manufacturing
+                                </h3>
+                                <p class="text-sm">Glasgow, UK</p>
+                                <p class="mt-2">
+                                    High-security installation for sensitive manufacturing facility with thermal cameras and perimeter detection.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                TechPro Manufacturing
+                            </h3>
+                            <p class="text-gray-700">Glasgow, UK</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <button class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+                        View More Projects
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Cosa Dicono i Nostri Clienti
+                    </h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Ascolta le testimonianze di aziende e proprietari di casa che si affidano a Sicurplan per le loro esigenze di sicurezza.
+                    </p>
+                </div>
+                <div class="relative max-w-6xl mx-auto">
+                    <div class="testimonial-slider overflow-hidden">
+                        <div class="testimonial-track flex transition-transform duration-500 ease-in-out my-8">
+                            <!-- Testimonial 1 -->
+                            <div class="testimonial-card w-full md:w-1/3 flex-shrink-0 px-4">
+                                <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                    <div class="flex items-center mb-4">
+                                        <div class="text-yellow-400 flex">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700 mb-6">
+                                        "Sicurplan ha trasformato il nostro sistema di sicurezza con un'installazione impeccabile. Il team è stato professionale e competente, completando il lavoro in anticipo sui tempi previsti."
+                                    </p>
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
+                                            <i class="ri-user-line ri-lg text-gray-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Marco Rossi</h4>
+                                            <p class="text-gray-600 text-sm">
+                                                Direttore Operativo, TechnoSicurezza SpA
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 2 -->
+                            <div class="testimonial-card w-full md:w-1/3 flex-shrink-0 px-4">
+                                <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                    <div class="flex items-center mb-4">
+                                        <div class="text-yellow-400 flex">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700 mb-6">
+                                        "Come proprietaria di casa, cercavo soluzioni di sicurezza discrete. Sicurplan ha fornito sistemi efficaci che si integrano perfettamente con l'estetica della nostra proprietà."
+                                    </p>
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
+                                            <i class="ri-user-line ri-lg text-gray-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Sofia Bianchi</h4>
+                                            <p class="text-gray-600 text-sm">Proprietaria, Milano</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 3 -->
+                            <div class="testimonial-card w-full md:w-1/3 flex-shrink-0 px-4">
+                                <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                    <div class="flex items-center mb-4">
+                                        <div class="text-yellow-400 flex">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-half-fill"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700 mb-6">
+                                        "Il nostro magazzino necessitava di un sistema di sicurezza complesso. Sicurplan ha progettato una soluzione completa che ha ridotto significativamente gli incidenti."
+                                    </p>
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
+                                            <i class="ri-user-line ri-lg text-gray-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Luca Ferrari</h4>
+                                            <p class="text-gray-600 text-sm">
+                                                Responsabile Logistica, Distribuzione Lombardia Srl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 4 -->
+                            <div class="testimonial-card w-full md:w-1/3 flex-shrink-0 px-4">
+                                <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                    <div class="flex items-center mb-4">
+                                        <div class="text-yellow-400 flex">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700 mb-6">
+                                        "Servizio eccellente dall'inizio alla fine. La consulenza iniziale è stata molto professionale e l'installazione è stata completata senza intoppi."
+                                    </p>
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
+                                            <i class="ri-user-line ri-lg text-gray-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Alessandro Verdi</h4>
+                                            <p class="text-gray-600 text-sm">
+                                                Manager, Retail Solutions Roma
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 5 -->
+                            <div class="testimonial-card w-full md:w-1/3 flex-shrink-0 px-4">
+                                <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                    <div class="flex items-center mb-4">
+                                        <div class="text-yellow-400 flex">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700 mb-6">
+                                        "La qualità delle telecamere è eccellente e l'app mobile funziona perfettamente. Posso monitorare la mia proprietà da qualsiasi luogo con totale tranquillità."
+                                    </p>
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
+                                            <i class="ri-user-line ri-lg text-gray-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Giulia Martini</h4>
+                                            <p class="text-gray-600 text-sm">Proprietaria, Torino</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Dots -->
+                    <div class="flex justify-center mt-8">
+                        <div class="testimonial-dots flex space-x-2">
+                            <!-- I pallini verranno generati dinamicamente dal JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button class="testimonial-prev absolute top-1/2 left-0 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md z-10 text-gray-800 hover:text-primary transition-colors duration-300">
+                        <i class="ri-arrow-left-s-line ri-lg"></i>
+                    </button>
+                    <button class="testimonial-next absolute top-1/2 right-0 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md z-10 text-gray-800 hover:text-primary transition-colors duration-300">
+                        <i class="ri-arrow-right-s-line ri-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Contattaci
+                    </h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Contattaci per una consulenza gratuita e un preventivo per le tue esigenze di sicurezza.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                            Richiedi un Preventivo
+                        </h3>
+                        <form id="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Nome Completo</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="Il tuo nome" />
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Indirizzo Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="La tua email" />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Numero Telefono</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="Your phone" />
+                                </div>
+                                <div>
+                                    <label for="project-type" class="block text-gray-700 font-medium mb-2">Tipo Progetto</label>
+                                    <div class="relative">
+                                        <select id="project-type" class="w-full px-4 py-3 border border-gray-300 rounded appearance-none focus:ring-2 focus:ring-primary/20 pr-8">
+                                            <option value="" selected disabled>Select type</option>
+                                            <option value="residential">Residenziale</option>
+                                            <option value="commercial">Commerciale</option>
+                                            <option value="industrial">Industriale</option>
+                                            <option value="other">Altro</option>
+                                        </select>
+                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                            <i class="ri-arrow-down-s-line text-gray-400"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Messaggi</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="Tell us about your project and requirements"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Inivia Richiesta
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Contact Information & Map -->
+                    <div>
+                        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                                Informazioni di Contatto
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4 flex-shrink-0">
+                                        <i class="ri-map-pin-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Indirizzo</h4>
+                                        <p class="text-gray-700">
+                                            Via Sammartini 5, Milano(MI) 20124, Italia
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4 flex-shrink-0">
+                                        <i class="ri-phone-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Phone</h4>
+                                        <p class="text-gray-700">+39 024 004 2454</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4 flex-shrink-0">
+                                        <i class="ri-mail-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Email</h4>
+                                        <p class="text-gray-700">info@sicurplan.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4 flex-shrink-0">
+                                        <i class="ri-time-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Orari</h4>
+                                        <p class="text-gray-700">Lunedì - Venerdì: 8:00 - 18:00</p>
+                                        <p class="text-gray-700">Sabato: 9:00 - 13:00</p>
+                                        <p class="text-gray-700">Domenica: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="font-medium text-gray-900 mb-4">Seguici</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://wa.me/393333868577" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
+                                        <i class="ri-whatsapp-fill"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
+                                        <i class="ri-instagram-fill"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                                Area di Servizio
+                            </h3>
+                            <div class="h-64 rounded overflow-hidden bg-cover bg-center" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');"></div>
+                            <p class="mt-4 text-gray-700">
+                                Forniamo servizi di installazione di sicurezza in tutta la Lombardia e in zone vicine dell' Emilia-Romagna
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-16 w-full">
+            <div class="container mx-auto px-4 sm:px-6 w-full">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    <!-- Company Info -->
+                    <div class="col-span-1 sm:col-span-2 lg:col-span-1">
+                        <a href="#" class="text-2xl sm:text-3xl font-['Pacifico'] text-white mb-4 sm:mb-6 inline-block">Sicurplan.com</a>
+                        <p class="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">
+                            Professional security solutions for residential, commercial, and industrial properties. Providing peace of mind through advanced technology and expert installation since 2008.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://wa.me/393333868577" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="ri-whatsapp-fill text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="ri-twitter-fill text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="ri-linkedin-fill text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="ri-instagram-fill text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+            <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Link Rapidi</h3>
+                        <ul class="space-y-2 sm:space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Servizi</a></li>
+                            <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Progetti</a></li>
+                            <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Testimonials</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contatti</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Blog</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Carriera</a></li>
+                        </ul>
+                    </div>
+                    <!-- Services -->
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">I Nostri Servizi</h3>
+                        <ul class="space-y-2 sm:space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Installazione Impianto di Sicurezza</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Controllo degli Accessi</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Monitoraggio Remoto</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Manutenzione del sistema</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Sistemi di Allarme</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Integrazione Mobile</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Contattami</h3>
+                        <ul class="space-y-2 sm:space-y-3">
+                            <li class="flex items-start">
+                                <i class="ri-map-pin-line mr-2 sm:mr-3 mt-1 text-sm"></i>
+                                <span class="text-gray-400 text-sm sm:text-base">Via Sammartini 5, 20124 Milano(MI)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-phone-line mr-2 sm:mr-3 mt-1 text-sm"></i>
+                                <span class="text-gray-400 text-sm sm:text-base">+39 024 004 2454</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-mail-line mr-2 sm:mr-3 mt-1 text-sm"></i>
+                                <span class="text-gray-400 text-sm sm:text-base">info@sicurplan.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-time-line mr-2 sm:mr-3 mt-1 text-sm"></i>
+                                <span class="text-gray-400 text-sm sm:text-base">Lun-Ven: 8:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4 sm:mt-6">
+                            <h4 class="font-medium mb-3 text-sm sm:text-base">Metodi di Pagamento</h4>
+                            <div class="flex space-x-3">
+                                <i class="ri-visa-fill text-xl sm:text-2xl text-gray-400"></i>
+                                <i class="ri-mastercard-fill text-xl sm:text-2xl text-gray-400"></i>
+                                <i class="ri-paypal-fill text-xl sm:text-2xl text-gray-400"></i>
+                                <i class="ri-bank-card-fill text-xl sm:text-2xl text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border-gray-800 my-6 sm:my-8 w-full" />
+                <div class="flex flex-col sm:flex-row justify-between items-center w-full">
+                    <p class="text-gray-500 mb-4 sm:mb-0 text-sm sm:text-base text-center sm:text-left">
+                        © 2025 Sicurplan.com SRL. Tutti i diritti Riservati.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm sm:text-base text-center">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm sm:text-base text-center">Terms of Service</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm sm:text-base text-center">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+            <i class="ri-arrow-up-line ri-lg"></i>
+        </button>
+        <!-- Scripts -->
+        <script src="script.js"></script>
+    </body>
+</html>

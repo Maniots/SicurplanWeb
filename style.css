@@ -1,0 +1,85 @@
+:where([class^="ri-"])::before {
+    content: "\f3c2";
+}
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.hero-section {
+    background-image: linear-gradient(to right,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.8) 30%,
+            rgba(255, 255, 255, 0.1) 100%),
+        url("https://readdy.ai/api/search-image?query=professional%20CCTV%20security%20camera%20installation%20scene%20with%20modern%20equipment%2C%20clean%20corporate%20environment%2C%20technician%20installing%20cameras%2C%20blue%20and%20white%20color%20scheme%2C%20high-tech%20security%20monitoring%20system%2C%20professional%20setting%2C%20clear%20visibility%20of%20security%20equipment&width=1920&height=1080&seq=1&orientation=landscape");
+    background-size: cover;
+    background-position: center right;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card.active {
+    transform: scale(1.05);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #1e40af;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+.testimonial-slider {
+    transform: translateX(0);
+}
+
+/* Mobile specific improvements */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .service-card,
+    .project-card {
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-card {
+        padding: 1rem;
+    }
+}
