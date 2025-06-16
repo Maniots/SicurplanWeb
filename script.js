@@ -1,3 +1,13 @@
+const EMAILJS_SERVICE_ID = 'service_ce4c29d';
+const EMAILJS_TEMPLATE_ID = 'template_pjewq0k';
+const EMAILJS_PUBLIC_KEY = 'Jlk95krbrLBVFBt9q';
+
+
+(function() {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+})();
+
+
 // Mobile Menu Toggle
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -340,4 +350,54 @@ window.addEventListener('beforeprint', () => {
 
 window.addEventListener('afterprint', () => {
     document.body.classList.remove('print-mode');
+});
+
+// Contact form handling with EmailJS
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submit-btn');
+    const formMessage = document.getElementById('form-message');
+    const originalBtnText = submitBtn.textContent;
+    
+    // Show loading state
+    submitBtn.textContent = 'Invio in corso...';
+    submitBtn.disabled = true;
+    formMessage.classList.add('hidden');
+    
+    // Get form data
+    const formData = new FormData(this);
+    const templateParams = {
+        from_name: formData.get('from_name'),
+        from_email: formData.get('from_email'),
+        phone: formData.get('phone'),
+        project_type: formData.get('project_type'),
+        message: formData.get('message'),
+        to_name: 'Sicurplan.com Team', // You can customize this
+    };
+    
+    // Send email using EmailJS
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Show success message
+            formMessage.innerHTML = '<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded"><strong>Successo!</strong> Il tuo messaggio è stato inviato. Ti contatteremo presto.</div>';
+            formMessage.classList.remove('hidden');
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+            
+        }, function(error) {
+            console.log('FAILED...', error);
+            
+            // Show error message
+            formMessage.innerHTML = '<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded"><strong>Errore!</strong> Si è verificato un problema nell\'invio del messaggio. Riprova più tardi.</div>';
+            formMessage.classList.remove('hidden');
+        })
+        .finally(function() {
+            // Reset button state
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        });
 });
