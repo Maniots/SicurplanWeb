@@ -373,7 +373,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         phone: formData.get('phone'),
         project_type: formData.get('project_type'),
         message: formData.get('message'),
-        to_name: 'Sicurplan.com Team', // You can customize this
+        subject_title: formData.get('subject_title')
     };
     
     // Send email using EmailJS
