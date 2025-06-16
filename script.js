@@ -246,53 +246,6 @@ if (backToTopButton) {
         });
     });
 }
-
-// Contact Form Handling
-const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            projectType: document.getElementById('project-type').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Basic validation
-        if (!formData.name || !formData.email || !formData.message) {
-            alert('Per favore compila tutti i campi obbligatori.');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            alert('Per favore inserisci un indirizzo email valido.');
-            return;
-        }
-        
-        // Simulate form submission
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        
-        submitButton.textContent = 'Invio in corso...';
-        submitButton.disabled = true;
-        
-        // Simulate API call
-        setTimeout(() => {
-            alert('Grazie per il tuo messaggio! Ti contatteremo presto.');
-            contactForm.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }, 2000);
-    });
-}
-
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -358,7 +311,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     
     const submitBtn = document.getElementById('submit-btn');
     const formMessage = document.getElementById('form-message');
-    const originalBtnText = submitBtn.textContent;
+    const originalBtnText = "Invia Richiesta";
     
     // Show loading state
     submitBtn.textContent = 'Invio in corso...';
@@ -382,7 +335,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
             console.log('SUCCESS!', response.status, response.text);
             
             // Show success message
-            formMessage.innerHTML = '<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded"><strong>Successo!</strong> Il tuo messaggio è stato inviato. Ti contatteremo presto.</div>';
+            formMessage.innerHTML = '<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mt-6 rounded"><strong>Successo!</strong> Il tuo messaggio è stato inviato. Ti contatteremo presto.</div>';
             formMessage.classList.remove('hidden');
             
             // Reset form
@@ -399,5 +352,9 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
             // Reset button state
             submitBtn.textContent = originalBtnText;
             submitBtn.disabled = false;
+
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000); // Hide message after 5 seconds
         });
 });
