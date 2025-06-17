@@ -58,6 +58,8 @@ body {
     transform: translateX(0);
 }
 
+
+
 /* Mobile specific improvements */
 @media (max-width: 768px) {
     .hero-section h1 {
@@ -82,6 +84,78 @@ body {
     .testimonial-card {
         padding: 1rem;
     }
+}
+
+#map {
+    min-height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.leaflet-container {
+    height: 100% !important;
+    width: 100% !important;
+    max-width: none !important;
+    background: #f8fafc;
+}
+
+.leaflet-tile-container {
+    transform: translate3d(0, 0, 0);
+}
+
+.leaflet-tile {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+.leaflet-popup-content {
+    margin: 8px 12px;
+    min-width: 200px;
+}
+
+.leaflet-popup-content h3 {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    color: #1e40af;
+}
+
+.leaflet-popup-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.leaflet-popup-content .mt-1 {
+    margin-top: 4px;
+}
+
+.leaflet-control-attribution {
+    font-size: 10px;
+}
+
+/* Migliora la visibilità dei controlli */
+.leaflet-control-zoom a {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+/* Stile personalizzato per la legenda */
+.legend-control {
+    background: white;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+}
+
+/* Fix per il problema dei quadratoni */
+.leaflet-fade-anim .leaflet-tile {
+    transition: opacity 0.2s;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+    transition: transform 0.25s cubic-bezier(0, 0, 0.25, 1);
 }
 
 /* Custom Scrollbar */

@@ -32,6 +32,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
         <style src="style.css"></style>
         <!-- Aggiungi questo CSS nel tag <head> dopo gli altri link CSS -->
         <style>
@@ -110,7 +111,7 @@
                         <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
                             Richiedi Consulenza Gratuita
                         </button>
-                        <button class="bg-white text-primary border-2 border-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+                        <button onclick="window.location.href='#services'" class="bg-white text-primary border-2 border-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
                             Visualizza i Progetti
                         </button>
                     </div>
@@ -694,7 +695,7 @@
                                     <div>
                                         <h4 class="font-medium text-gray-900">Orari</h4>
                                         <p class="text-gray-700">Lunedì - Venerdì: 8:00 - 18:00</p>
-                                        <p class="text-gray-700">Sabato: 9:00 - 13:00</p>
+                                        <p class="text-gray-700">Sabato: Su Appuntamento</p>
                                     </div>
                                 </div>
                             </div>
@@ -704,8 +705,8 @@
                                     <a href="https://wa.me/393333868577" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
                                         <i class="ri-whatsapp-fill"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
-                                        <i class="ri-twitter-fill"></i>
+                                    <a href="tel:+390240042454" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
+                                        <i class="ri-phone-fill"></i>
                                     </a>
                                     <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-primary hover:bg-primary hover:text-white transition-colors">
                                         <i class="ri-linkedin-fill"></i>
@@ -720,7 +721,7 @@
                             <h3 class="text-2xl font-semibold text-gray-900 mb-6">
                                 Area di Servizio
                             </h3>
-                            <div class="h-64 rounded overflow-hidden bg-cover bg-center" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');"></div>
+                            <div id="map" class="rounded overflow-hidden bg-cover bg-center w-full h-64 md:h-96 "></div>
                             <p class="mt-4 text-gray-700">
                                 Forniamo servizi di installazione di sicurezza in tutta la Lombardia e in zone vicine dell' Emilia-Romagna
                             </p>
@@ -744,7 +745,7 @@
                                 <i class="ri-whatsapp-fill text-xl"></i>
                             </a>
                             <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                                <i class="ri-twitter-fill text-xl"></i>
+                                <i class="ri-phone-fill text-xl"></i>
                             </a>
                             <a href="#" class="text-gray-400 hover:text-white transition-colors">
                                 <i class="ri-linkedin-fill text-xl"></i>
@@ -829,6 +830,7 @@
             <i class="ri-arrow-up-line ri-lg"></i>
         </button>
         <!-- Scripts -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
         <script src="script.js" defer></script>
     </body>
 </html>
