@@ -542,3 +542,330 @@ function initServiceAreaMap() {
 // Inizializza la mappa quando il DOM è caricato
 document.addEventListener("DOMContentLoaded", initServiceAreaMap);
 
+// Modal Management Functions
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('opacity-0', 'invisible');
+        modal.classList.add('opacity-100', 'visible');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('opacity-0', 'invisible');
+        modal.classList.remove('opacity-100', 'visible');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+}
+
+// Close modal when clicking on backdrop
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal-backdrop')) {
+        const modal = e.target;
+        modal.classList.add('opacity-0', 'invisible');
+        modal.classList.remove('opacity-100', 'visible');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const openModals = document.querySelectorAll('.modal-backdrop.opacity-100');
+        openModals.forEach(modal => {
+            modal.classList.add('opacity-0', 'invisible');
+            modal.classList.remove('opacity-100', 'visible');
+        });
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Cookie Management Functions
+const COOKIE_CONSENT_KEY = 'sicurplan_cookie_consent';
+const COOKIE_PREFERENCES_KEY = 'sicurplan_cookie_preferences';
+
+// Cookie utility functions
+function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function deleteCookie(name) {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+}
+
+// Cookie consent functions
+function acceptAllCookies() {
+    const preferences = {
+        necessary: true,
+        analytics: true,
+        marketing: true,
+        preferences: true
+    };
+    
+    saveCookiePreferences(preferences);
+    setCookie(COOKIE_CONSENT_KEY, 'accepted', 365);
+    
+    // Update checkboxes
+    document.getElementById('analytics-cookies').checked = true;
+    document.getElementById('marketing-cookies').checked = true;
+    document.getElementById('preference-cookies').checked = true;
+    
+    // Load tracking scripts
+    loadTrackingScripts(preferences);
+    
+    closeModal('cookie-modal');
+    showCookieMessage('Preferenze cookie salvate con successo!', 'success');
+}
+
+function acceptNecessaryOnly() {
+    const preferences = {
+        necessary: true,
+        analytics: false,
+        marketing: false,
+        preferences: false
+    };
+    
+    saveCookiePreferences(preferences);
+    setCookie(COOKIE_CONSENT_KEY, 'necessary_only', 365);
+    
+    // Update checkboxes
+    document.getElementById('analytics-cookies').checked = false;
+    document.getElementById('marketing-cookies').checked = false;
+    document.getElementById('preference-cookies').checked = false;
+    
+    // Remove non-necessary cookies
+    removeNonNecessaryCookies();
+    
+    closeModal('cookie-modal');
+    showCookieMessage('Solo i cookie necessari sono stati accettati.', 'info');
+}
+
+function saveCookiePreferences(preferences) {
+    setCookie(COOKIE_PREFERENCES_KEY, JSON.stringify(preferences), 365);
+    
+    // Load or remove scripts based on preferences
+    loadTrackingScripts(preferences);
+}
+
+function loadCookiePreferences() {
+    const preferences = getCookie(COOKIE_PREFERENCES_KEY);
+    if (preferences) {
+        try {
+            const parsed = JSON.parse(preferences);
+            
+            // Update checkboxes based on saved preferences
+            document.getElementById('analytics-cookies').checked = parsed.analytics || false;
+            document.getElementById('marketing-cookies').checked = parsed.marketing || false;
+            document.getElementById('preference-cookies').checked = parsed.preferences || false;
+            
+            return parsed;
+        } catch (e) {
+            console.error('Error parsing cookie preferences:', e);
+        }
+    }
+    return null;
+}
+
+function loadTrackingScripts(preferences) {
+    // Google Analytics
+    if (preferences.analytics) {
+        loadGoogleAnalytics();
+    } else {
+        removeGoogleAnalytics();
+    }
+    
+    // Marketing pixels
+    if (preferences.marketing) {
+        loadMarketingPixels();
+    } else {
+        removeMarketingPixels();
+    }
+}
+
+function loadGoogleAnalytics() {
+    if (!document.querySelector('script[src*="googletagmanager"]')) {
+        const script1 = document.createElement('script');
+        script1.async = true;
+        script1.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+        document.head.appendChild(script1);
+        
+        const script2 = document.createElement('script');
+        script2.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GA_MEASUREMENT_ID');
+        `;
+        document.head.appendChild(script2);
+    }
+}
+
+function removeGoogleAnalytics() {
+    // Remove GA scripts
+    const gaScripts = document.querySelectorAll('script[src*="googletagmanager"], script[src*="google-analytics"]');
+    gaScripts.forEach(script => script.remove());
+    
+    // Clear GA cookies
+    const gaCookies = ['_ga', '_ga_', '_gid', '_gat'];
+    gaCookies.forEach(cookie => {
+        deleteCookie(cookie);
+        // Also delete with different domains
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+    });
+}
+
+function loadMarketingPixels() {
+    // Facebook Pixel
+    if (!document.querySelector('script[src*="facebook"]')) {
+        const fbScript = document.createElement('script');
+        fbScript.innerHTML = `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', 'YOUR_PIXEL_ID');
+            fbq('track', 'PageView');
+        `;
+        document.head.appendChild(fbScript);
+    }
+}
+
+function removeMarketingPixels() {
+    // Remove Facebook pixel
+    const fbScripts = document.querySelectorAll('script[src*="facebook"], script[src*="fbevents"]');
+    fbScripts.forEach(script => script.remove());
+    
+    // Clear marketing cookies
+    const marketingCookies = ['_fbp', '_fbc', 'fr'];
+    marketingCookies.forEach(cookie => {
+        deleteCookie(cookie);
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
+    });
+}
+
+function removeNonNecessaryCookies() {
+    // List of non-necessary cookies to remove
+    const nonNecessaryCookies = [
+        '_ga', '_ga_', '_gid', '_gat', // Google Analytics
+        '_fbp', '_fbc', 'fr', // Facebook
+        '__utma', '__utmb', '__utmc', '__utmt', '__utmz', // Old Google Analytics
+        '_hjid', '_hjFirstSeen', '_hjIncludedInSessionSample', // Hotjar
+        'IDE', 'test_cookie', // Google DoubleClick
+    ];
+    
+    nonNecessaryCookies.forEach(cookie => {
+        deleteCookie(cookie);
+        // Try different domain variations
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+    });
+}
+
+function showCookieMessage(message, type = 'info') {
+    // Create and show a temporary message
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `fixed bottom-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
+        type === 'success' ? 'bg-green-100 text-green-800 border border-green-200' :
+        type === 'error' ? 'bg-red-100 text-red-800 border border-red-200' :
+        'bg-blue-100 text-blue-800 border border-blue-200'
+    }`;
+    messageDiv.innerHTML = `
+        <p class="text-sm">${message}</p>
+        <button onclick="this.parentElement.remove()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+            <i class="ri-close-line"></i>
+        </button>
+    `;
+    
+    document.body.appendChild(messageDiv);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.remove();
+        }
+    }, 5000);
+}
+
+// Cookie preference change handlers
+function handleCookiePreferenceChange() {
+    const analytics = document.getElementById('analytics-cookies').checked;
+    const marketing = document.getElementById('marketing-cookies').checked;
+    const preferences = document.getElementById('preference-cookies').checked;
+    
+    const cookiePreferences = {
+        necessary: true,
+        analytics: analytics,
+        marketing: marketing,
+        preferences: preferences
+    };
+    
+    saveCookiePreferences(cookiePreferences);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Load saved cookie preferences
+    const savedPreferences = loadCookiePreferences();
+    
+    // Add event listeners to cookie preference checkboxes
+    const cookieCheckboxes = ['analytics-cookies', 'marketing-cookies', 'preference-cookies'];
+    cookieCheckboxes.forEach(id => {
+        const checkbox = document.getElementById(id);
+        if (checkbox) {
+            checkbox.addEventListener('change', handleCookiePreferenceChange);
+        }
+    });
+    
+    // Check if user has already given consent
+    const consentStatus = getCookie(COOKIE_CONSENT_KEY);
+    if (consentStatus && savedPreferences) {
+        // User has already given consent, load appropriate scripts
+        loadTrackingScripts(savedPreferences);
+    } else {
+        // Show cookie banner if no consent given
+        // This would typically be handled by a separate cookie banner component
+        console.log('No cookie consent found, should show cookie banner');
+    }
+});
+
+// Utility function to check if user has consented to specific cookie types
+function hasConsentFor(cookieType) {
+    const preferences = getCookie(COOKIE_PREFERENCES_KEY);
+    if (preferences) {
+        try {
+            const parsed = JSON.parse(preferences);
+            return parsed[cookieType] || false;
+        } catch (e) {
+            console.error('Error parsing cookie preferences:', e);
+        }
+    }
+    return false;
+}
+
+// Export functions for global use
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.acceptAllCookies = acceptAllCookies;
+window.acceptNecessaryOnly = acceptNecessaryOnly;
+window.hasConsentFor = hasConsentFor;
