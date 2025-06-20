@@ -441,7 +441,7 @@ function initServiceAreaMap() {
       weight: 3,
       fillColor: "#3b82f6",
       fillOpacity: 0.15,
-      radius: 60000, // 80km di raggio
+      radius: 45000, // 40km di raggio
     }).addTo(map);
 
     lombardiaArea.bindPopup(`
